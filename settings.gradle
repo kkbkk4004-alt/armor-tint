@@ -9,4 +9,4 @@ pluginManagement {
 	}
 }
 
-rootProject.name = 'armor-tint'
+rootProject.name = 'spotify-bar'
