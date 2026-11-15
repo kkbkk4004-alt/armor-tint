@@ -4,7 +4,7 @@ import com.example.armortint.ArmorTint;
 import com.example.armortint.TintProvider;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
-import net.minecraft.client.render.entity.state.BipedEntityRenderState;
+import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -24,7 +24,7 @@ public abstract class ArmorFeatureRendererMixin {
 
 	@Inject(method = "renderArmor", at = @At("HEAD"))
 	private void armortint$begin(MatrixStack matrices, VertexConsumerProvider vertexConsumers, ItemStack stack,
-								 EquipmentSlot slot, int light, BipedEntityRenderState state, CallbackInfo ci) {
+								 EquipmentSlot slot, int light, BipedEntityModel<?> armorModel, CallbackInfo ci) {
 		ArmorTint.begin(stack);
 	}
 
@@ -35,7 +35,7 @@ public abstract class ArmorFeatureRendererMixin {
 
 	@Inject(method = "renderArmor", at = @At("RETURN"))
 	private void armortint$end(MatrixStack matrices, VertexConsumerProvider vertexConsumers, ItemStack stack,
-							   EquipmentSlot slot, int light, BipedEntityRenderState state, CallbackInfo ci) {
+							   EquipmentSlot slot, int light, BipedEntityModel<?> armorModel, CallbackInfo ci) {
 		ArmorTint.end();
 	}
 }

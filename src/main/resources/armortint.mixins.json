@@ -1,11 +1,11 @@
 {
-  "required": true,
+  "required": false,
   "package": "com.example.armortint.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
     "ArmorFeatureRendererMixin"
   ],
   "injectors": {
-    "defaultRequire": 1
+    "defaultRequire": 0
   }
 }

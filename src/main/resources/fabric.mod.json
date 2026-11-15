@@ -1,17 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "spotifybar",
+  "id": "armortint",
   "version": "${version}",
-  "name": "Spotify Bar",
-  "description": "Shows the song you are playing on Spotify as a movable widget on your screen.",
+  "name": "Armor Tint",
+  "description": "Armor worn by any player turns yellow, orange, then red as it gets close to breaking.",
   "authors": [],
   "license": "MIT",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "com.example.spotifybar.SpotifyBarClient"
+      "com.example.armortint.ArmorTintClient"
     ]
   },
+  "mixins": [
+    "armortint.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.16.0",
     "minecraft": "1.21.4",
