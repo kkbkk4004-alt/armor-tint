@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "armortint",
+  "version": "${version}",
+  "name": "Armor Tint",
+  "description": "Armor worn by any player turns yellow, orange, then red as it gets close to breaking.",
+  "authors": [],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.example.armortint.ArmorTintClient"
+    ]
+  },
+  "mixins": [
+    "armortint.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
