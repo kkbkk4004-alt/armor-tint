@@ -19,12 +19,19 @@ public final class TintConsumer implements VertexConsumer {
 	@Override
 	public VertexConsumer color(int red, int green, int blue, int alpha) {
 		if (ArmorTint.active) {
-			red = red * ArmorTint.r / 255;
-			green = green * ArmorTint.g / 255;
-			blue = blue * ArmorTint.b / 255;
+			float k = Math.max(0f, Math.min(1f, ArmorTintConfig.get().strength));
+			red = solid(red, ArmorTint.r, k);
+			green = solid(green, ArmorTint.g, k);
+			blue = solid(blue, ArmorTint.b, k);
 		}
 		delegate.color(red, green, blue, alpha);
 		return this;
+	}
+
+	/** Pushes the armor toward the warning color but keeps its shading, so it stays vivid on dark armor. */
+	private static int solid(int c, int tint, float k) {
+		float shaded = tint * (0.45f + 0.55f * c / 255f);
+		return Math.max(0, Math.min(255, Math.round(c * (1f - k) + shaded * k)));
 	}
 
 	@Override

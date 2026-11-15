@@ -17,6 +17,8 @@ public class ArmorTintConfig {
 	public float startFraction = 0.5f;
 	/** Blink when almost broken (10% left or less). */
 	public boolean flash = true;
+	/** How strong the color is, 0.0 (faint) to 1.0 (solid). */
+	public float strength = 0.9f;
 
 	private static ArmorTintConfig instance;
 
