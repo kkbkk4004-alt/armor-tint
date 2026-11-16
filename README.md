@@ -22,3 +22,7 @@ left it blinks.
 Push to GitHub; the Actions workflow builds the jar (artifact `armor-tint-jar`).
 Needs Fabric API for 1.21.4. Written for the Yarn mappings of 1.21.4; if the build or game
 reports that `renderArmor` can't be found, the render code differs and needs a small fix.
+
+## Settings in game
+Press **H** (rebindable in Controls) to open the settings: on/off, color strength, the durability level
+where the color starts, and blinking. Changes apply instantly and are saved. **G** still toggles the mod.
