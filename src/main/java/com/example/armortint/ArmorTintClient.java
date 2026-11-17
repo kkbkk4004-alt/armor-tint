@@ -14,13 +14,20 @@ public class ArmorTintClient implements ClientModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("armortint");
 
 	private static KeyBinding toggleKey;
+	private static KeyBinding openKey;
 
 	@Override
 	public void onInitializeClient() {
 		toggleKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
 				"key.armortint.toggle", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_G, "key.categories.armortint"));
 
+		openKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+				"key.armortint.open", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_H, "key.categories.armortint"));
+
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
+			while (openKey.wasPressed()) {
+				client.setScreen(new ArmorTintScreen());
+			}
 			while (toggleKey.wasPressed()) {
 				ArmorTintConfig cfg = ArmorTintConfig.get();
 				cfg.enabled = !cfg.enabled;
